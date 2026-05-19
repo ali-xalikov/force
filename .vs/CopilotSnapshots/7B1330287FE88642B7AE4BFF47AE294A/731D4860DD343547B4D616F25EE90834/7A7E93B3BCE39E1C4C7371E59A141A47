@@ -1,0 +1,301 @@
+﻿'use client';
+
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Edit2, Trash2 } from 'lucide-react';
+
+interface TeamMember {
+  id: number;
+  name: string;
+  surname: string;
+  role: string;
+  department: string;
+  image?: string;
+}
+
+export const OrgChart = () => {
+  const [teamData, setTeamData] = useState<TeamMember[]>([
+    // OMMAVIY TADBIRLAR GURUHI
+    { id: 1, name: 'Yasimov', surname: 'Azizbekn o\'g\'li', role: 'Rahbar', department: 'OMMAVIY TADBIRLAR GURUHI', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Yasimov' },
+    { id: 2, name: 'Marisanov', surname: 'Meirdiddin Mansur o\'g\'li', role: 'Bosh mutaxassis', department: 'OMMAVIY TADBIRLAR GURUHI', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marisanov' },
+    { id: 3, name: 'Shamirzayev', surname: 'Ahnobek Irorjon o\'g\'li', role: 'Mutaxassis', department: 'OMMAVIY TADBIRLAR GURUHI', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Shamirzayev' },
+    { id: 4, name: 'Olimzoda', surname: 'Irfandiyor Jamshid o\'g\'li', role: 'Mutaxassis', department: 'OMMAVIY TADBIRLAR GURUHI', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Olimzoda' },
+    { id: 5, name: 'Yorkulov', surname: 'Shohjallon Sharikatovich', role: 'Mutaxassis', department: 'OMMAVIY TADBIRLAR GURUHI', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Yorkulov' },
+    { id: 6, name: 'Tursukulov', surname: 'Tal\'ation Tulkinovich', role: 'Mutaxassis', department: 'OMMAVIY TADBIRLAR GURUHI', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Tursukulov' },
+
+    // ICHKI TADBIRLAR
+    { id: 7, name: 'Marisanov', surname: 'Meirdiddin Mansur o\'g\'li', role: 'Rahbar', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=MarisanovChief' },
+    { id: 8, name: 'Mirgammadaliyer', surname: 'Farrus Sobiraali o\'g\'li', role: 'Bosh mutaxassis', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mirgammadaliyer' },
+    { id: 9, name: 'Rahmonqulov', surname: 'Sherrod Bahromjon o\'g\'li', role: 'Mutaxassis', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Rahmonqulov' },
+    { id: 10, name: 'Rahmonov', surname: 'Behrus To\'ravoy o\'g\'li', role: 'Mutaxassis', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Rahmonov' },
+    { id: 11, name: 'Xamzayeva', surname: 'Diyora Isroil qizi', role: 'Mutaxassis', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Xamzayeva' },
+    { id: 12, name: 'Qarbonova', surname: 'Dilbar Abduq\'omi qizi', role: 'Mutaxassis', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Qarbonova' },
+    { id: 13, name: 'Absatova', surname: 'Gulzonam A\'zamjon qizi', role: 'Mutaxassis', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Absatova' },
+    { id: 14, name: 'Umaraliyeva', surname: 'Taboma Almadaqozovna', role: 'Mutaxassis', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Umaraliyeva' },
+    { id: 15, name: 'Mirzabekova', surname: 'Rimzora Ismail qizi', role: 'Mutaxassis', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mirzabekova' },
+    { id: 16, name: 'Farhanrozova', surname: 'Lofa Nojabkarovma', role: 'Mutaxassis', department: 'ICHKI TADBIRLAR', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Farhanrozova' },
+
+    // NAZORAT BO'LIMI
+    { id: 17, name: 'Abduraxmonov', surname: 'Roxon Tajibqoy o\'g\'li', role: 'Rahbar', department: 'NAZORAT BO\'LIMI', image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Abduraxmonov' },
+  ]);
+
+  const [editingId] = useState<number | null>(null);
+
+  const handleDelete = (id: number) => {
+    setTeamData(teamData.filter(m => m.id !== id));
+  };
+
+  const departmentStyles = {
+    'OMMAVIY TADBIRLAR GURUHI': {
+      header: 'bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500',
+      badge: 'bg-blue-500/20 text-blue-300',
+    },
+    'ICHKI TADBIRLAR': {
+      header: 'bg-gradient-to-r from-purple-600 via-pink-500 to-rose-500',
+      badge: 'bg-purple-500/20 text-purple-300',
+    },
+    'NAZORAT BO\'LIMI': {
+      header: 'bg-gradient-to-r from-emerald-600 via-green-500 to-teal-500',
+      badge: 'bg-green-500/20 text-green-300',
+    },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
+  const rowVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.4 },
+    },
+  };
+
+  const departments = ['OMMAVIY TADBIRLAR GURUHI', 'ICHKI TADBIRLAR', 'NAZORAT BO\'LIMI'];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#0B0F0A] to-[#1a1f1a] py-16 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 bg-clip-text text-transparent mb-4">
+            Tashkiliy Tuzilma
+          </h1>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 rounded-full mx-auto"></div>
+        </motion.div>
+
+        {/* Departments Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16"
+        >
+          {departments.map((dept) => (
+            <motion.div
+              key={dept}
+              variants={itemVariants}
+              className="group"
+            >
+              <div className="relative">
+                <div className={`absolute -inset-0.5 bg-gradient-to-r ${
+                  dept === 'OMMAVIY TADBIRLAR GURUHI' 
+                    ? 'from-blue-600 to-cyan-600'
+                    : dept === 'ICHKI TADBIRLAR'
+                    ? 'from-purple-600 to-pink-600'
+                    : 'from-emerald-600 to-teal-600'
+                } rounded-xl blur-lg opacity-0 group-hover:opacity-75 transition duration-500`}></div>
+
+                <div className="relative bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-gray-600 transition-all duration-300">
+                  <div className={`${departmentStyles[dept as keyof typeof departmentStyles].header} px-6 py-4 relative overflow-hidden`}>
+                    <h2 className="text-lg font-bold text-white tracking-wide uppercase">
+                      {dept}
+                    </h2>
+                  </div>
+
+                  <div className="divide-y divide-gray-700/50">
+                    {teamData
+                      .filter((member) => member.department === dept)
+                      .map((member) => (
+                        <motion.div
+                          key={member.id}
+                          variants={rowVariants}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          className="p-4 hover:bg-gray-800/30 transition-all duration-200 group/item"
+                        >
+                          <div className="flex items-center gap-4">
+                            <motion.div
+                              whileHover={{ scale: 1.1 }}
+                              className="flex-shrink-0"
+                            >
+                              <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-blue-400 bg-gradient-to-br from-blue-900 to-purple-900 shadow-lg">
+                                <img 
+                                  src={member.image} 
+                                  alt={`${member.name} ${member.surname}`}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                            </motion.div>
+
+                            <div className="flex-1 min-w-0">
+                              <div className="flex flex-col gap-1">
+                                <div>
+                                  <p className="text-sm font-bold text-white truncate">
+                                    {member.name}
+                                  </p>
+                                  <p className="text-xs text-gray-400 truncate">
+                                    {member.surname}
+                                  </p>
+                                </div>
+                                <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold w-fit ${departmentStyles[dept as keyof typeof departmentStyles].badge}`}>
+                                  {member.role}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="flex gap-1 opacity-0 group-hover/item:opacity-100 transition-opacity">
+                              <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                className="p-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs transition-colors"
+                              >
+                                <Edit2 size={12} />
+                              </motion.button>
+                              <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={() => handleDelete(member.id)}
+                                className="p-1.5 bg-red-600 hover:bg-red-700 text-white rounded text-xs transition-colors"
+                              >
+                                <Trash2 size={12} />
+                              </motion.button>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Full Table View */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="group"
+        >
+          <div className="relative">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-xl blur-lg opacity-0 group-hover:opacity-50 transition duration-500"></div>
+
+            <div className="relative bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-gray-600 transition-all duration-300">
+              <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 px-6 py-4">
+                <h2 className="text-2xl font-bold text-white uppercase">
+                  Barcha Xodimlar
+                </h2>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gray-800/50 sticky top-0 border-b border-gray-700/50">
+                    <tr>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">#</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">Rasm</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">Ism</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">Familiya</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">Rol</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">Bo'lim</th>
+                      <th className="px-6 py-4 text-center text-xs font-semibold text-gray-300 uppercase tracking-wider">Harakat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {teamData.map((member, index) => (
+                      <motion.tr
+                        key={member.id}
+                        variants={rowVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className={`border-b border-gray-700/30 transition-all duration-200 ${
+                          index % 2 === 0 ? 'bg-gray-900/30' : 'bg-gray-800/20'
+                        }`}
+                      >
+                        <td className="px-6 py-4 text-sm text-gray-400 font-medium">{index + 1}</td>
+                        <td className="px-6 py-4">
+                          <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            className="w-12 h-12 rounded-full overflow-hidden border-2 border-blue-400 bg-gradient-to-br from-blue-900 to-purple-900"
+                          >
+                            <img 
+                              src={member.image} 
+                              alt={`${member.name} ${member.surname}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </motion.div>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-white font-medium">{member.name}</td>
+                        <td className="px-6 py-4 text-sm text-gray-300">{member.surname}</td>
+                        <td className="px-6 py-4 text-sm">
+                          <span className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-semibold">
+                            {member.role}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-400">{member.department}</td>
+                        <td className="px-6 py-4 text-center space-x-2">
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1"
+                          >
+                            <Edit2 size={14} /> Tahrir
+                          </motion.button>
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => handleDelete(member.id)}
+                            className="px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold transition-colors inline-flex items-center gap-1"
+                          >
+                            <Trash2 size={14} /> O'chirish
+                          </motion.button>
+                        </td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};

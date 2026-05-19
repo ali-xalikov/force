@@ -1,0 +1,22 @@
+﻿import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { About } from './components/About';
+import { Team } from './components/Team';
+import { Missions } from './components/Missions';
+import { Gallery } from './components/Gallery';
+import { Footer } from './components/Footer';
+import React = require('react');
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-[#0B0F0A]">
+      <Navbar />
+      <Hero />
+      <About />
+      <Team />
+      <Missions />
+      <Gallery />
+      <Footer />
+    </div>
+  );
+}
