@@ -9,7 +9,13 @@ import Ruxsora from "../../../images/Ruxsora.png";
 import Isfandiyor from "../../../images/Isfandiyor.png";
 import Shohjahon from "../../../images/Shohjahon.png";
 import Talatjon from "../../../images/Tal'atjon.png";
-import Sherzod1 from "../../../images/Sherzod.jpg";
+import Sherzod1 from "../../../images/Sherzod.png";
+import Sherzod from "../../../images/Sherzod.jpg";
+import Abbosbek from "../../../images/Abbosbek.jpg";
+import Bobur from "../../../images/Bobur.jpg";
+import Mehriddin from "../../../images/Mehriddin.png";
+import Dilyora from "../../../images/Dilyora.png";
+import Farrux from "../../../images/Farrux.png";
 
 
 
@@ -39,7 +45,7 @@ const OrgChart = () => {
       name: "Sharipov Sherzod Shuxratovich",
       role: "Guruh Rahbari",
       department: "RAHBARIYAT",
-      image: "../../../images/Sherzod.jpg",
+      image: Sherzod,
       specialty: "Strategik boshqaruv",
     },
     {
@@ -47,14 +53,14 @@ const OrgChart = () => {
       name: "Mavlonov Mehriddin Mansur o'g'li",
       role: "Mutaxassis",
       department: "OMMAVIY TADBIRLAR GURUHI",
-      image: "../../../images/Mehriddin.png",
+      image: Mehriddin,
     },
     {
       id: 2,
       name: "Shermirzayev Abbosbek Isroiljon o'g'li",
       role: "Mutaxassis",
       department: "OMMAVIY TADBIRLAR GURUHI",
-      image: "../../../images/Abbosbek.jpg",
+      image: Abbosbek,
     },
     {
       id: 4,
@@ -84,21 +90,21 @@ const OrgChart = () => {
       name: "Mavlonov Mehriddin Mansur o'g'li",
       role: "Bo'lim boshlig'i",
       department: "ICHKI TADBIRLAR",
-      image: "../../../images/Mehriddin.png",
+      image: Mehriddin,
     },
     {
       id: 8,
       name: "Xamraeva Dilyora Isroil qizi",
       role: "Kardinator",
       department: "ICHKI TADBIRLAR",
-      image: "../../../images/Dilyora.png",
+      image: Dilyora,
     },
     {
       id: 11,
       name: "Muxammadaliyev Farrux Sultonali o'g'li",
       role: "Mutaxassis",
       department: "ICHKI TADBIRLAR",
-      image: "../../../images/Farrux.png",
+      image: Farrux,
     },
     {
       id: 9,
@@ -133,7 +139,7 @@ const OrgChart = () => {
       name: "Aleksandrov Bobur Tojiboy o'g'li",
       role: "Nazoratchi",
       department: "NAZORAT BO'LIMI",
-      image: "../../../images/Bobur.jpg",
+      image: Bour,
     },
   ]);
 
