@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { ChevronRight, Target } from "lucide-react";
-import orqa from "public/images/orqa.jpg";
+import orqa from "/images/orqa.jpg";
 
 export function Hero() {
   return (
