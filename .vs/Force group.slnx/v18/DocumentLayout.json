@@ -58,8 +58,7 @@
               "RelativeToolTip": "src\\app\\components\\Hero.tsx",
               "ViewState": "AgIAAHcAAAAAAAAAAAAowJEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-05-18T02:09:47.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T02:09:47.26Z"
             },
             {
               "$type": "Document",
@@ -67,9 +66,9 @@
               "Title": "OrgChart2.tsx",
               "DocumentMoniker": "C:\\Users\\Rudy\\Desktop\\Force group\\src\\app\\components\\OrgChart2.tsx",
               "RelativeDocumentMoniker": "src\\app\\components\\OrgChart2.tsx",
-              "ToolTip": "C:\\Users\\Rudy\\Desktop\\Force group\\src\\app\\components\\OrgChart2.tsx",
-              "RelativeToolTip": "src\\app\\components\\OrgChart2.tsx",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwB0AAAAaAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Rudy\\Desktop\\Force group\\src\\app\\components\\OrgChart2.tsx*",
+              "RelativeToolTip": "src\\app\\components\\OrgChart2.tsx*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2026-05-17T15:51:24.168Z",
               "EditorCaption": ""
@@ -108,8 +107,7 @@
               "RelativeToolTip": "src\\app\\components\\Team.tsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-05-17T12:50:42.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-17T12:50:42.006Z"
             },
             {
               "$type": "Document",
@@ -121,8 +119,7 @@
               "RelativeToolTip": "src\\app\\App.tsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-05-17T12:44:56.523Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-17T12:44:56.523Z"
             },
             {
               "$type": "Document",
@@ -134,8 +131,7 @@
               "RelativeToolTip": "src\\app\\components\\OrgChart.tsx",
               "ViewState": "AgIAAIUBAAAAAAAAAIBZwIoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-05-17T13:08:47.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-17T13:08:47.219Z"
             },
             {
               "$type": "Document",
@@ -147,8 +143,7 @@
               "RelativeToolTip": "src\\main.tsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAB6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2026-05-17T12:38:43.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-17T12:38:43.72Z"
             },
             {
               "$type": "Document",
@@ -161,10 +156,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-05-17T13:03:04.466Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

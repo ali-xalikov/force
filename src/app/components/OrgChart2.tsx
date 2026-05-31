@@ -3,19 +3,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Edit2, Trash2, Shield, Star, Users, Search } from "lucide-react";
-import Sherzod from "../../../images/Sherzod.jpg";
-import Sherzod1 from "../../../images/Sherzod.png";
-import Mehriddin from "../../../images/Mehriddin.png";
-import Abbosbek from "../../../images/Abbosbek.jpg";
-import Farrux from "../../../images/Farrux.png";
-import Dilyora from "../../../images/Dilyora.png";
-import Bobur from "../../../images/Bobur.jpg";
 import Behruz from "../../../images/Behruz.jpg";
 import Jahona from "../../../images/Jahona.png";
 import Ruxsora from "../../../images/Ruxsora.png";
 import Isfandiyor from "../../../images/Isfandiyor.png";
 import Shohjahon from "../../../images/Shohjahon.png";
 import Talatjon from "../../../images/Tal'atjon.png";
+import Sherzod1 from "../../../images/Sherzod.jpg";
 
 
 
@@ -45,7 +39,7 @@ const OrgChart = () => {
       name: "Sharipov Sherzod Shuxratovich",
       role: "Guruh Rahbari",
       department: "RAHBARIYAT",
-      image: Sherzod,
+      image: "../../../images/Sherzod.jpg",
       specialty: "Strategik boshqaruv",
     },
     {
@@ -53,14 +47,14 @@ const OrgChart = () => {
       name: "Mavlonov Mehriddin Mansur o'g'li",
       role: "Mutaxassis",
       department: "OMMAVIY TADBIRLAR GURUHI",
-      image: Mehriddin,
+      image: "../../../images/Mehriddin.png",
     },
     {
       id: 2,
       name: "Shermirzayev Abbosbek Isroiljon o'g'li",
       role: "Mutaxassis",
       department: "OMMAVIY TADBIRLAR GURUHI",
-      image: Abbosbek,
+      image: "../../../images/Abbosbek.jpg",
     },
     {
       id: 4,
@@ -90,21 +84,21 @@ const OrgChart = () => {
       name: "Mavlonov Mehriddin Mansur o'g'li",
       role: "Bo'lim boshlig'i",
       department: "ICHKI TADBIRLAR",
-      image: Mehriddin,
+      image: "../../../images/Mehriddin.png",
     },
     {
       id: 8,
       name: "Xamraeva Dilyora Isroil qizi",
       role: "Kardinator",
       department: "ICHKI TADBIRLAR",
-      image: Dilyora,
+      image: "../../../images/Dilyora.png",
     },
     {
       id: 11,
       name: "Muxammadaliyev Farrux Sultonali o'g'li",
       role: "Mutaxassis",
       department: "ICHKI TADBIRLAR",
-      image: Farrux,
+      image: "../../../images/Farrux.png",
     },
     {
       id: 9,
@@ -139,7 +133,7 @@ const OrgChart = () => {
       name: "Aleksandrov Bobur Tojiboy o'g'li",
       role: "Nazoratchi",
       department: "NAZORAT BO'LIMI",
-      image: Bobur,
+      image: "../../../images/Bobur.jpg",
     },
   ]);
 
@@ -168,7 +162,7 @@ const OrgChart = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase"
           >
-            UWED <span className="text-green-500">FORCE</span> CONTROL
+            UWED <span className="text-[#830218]">FORCE</span> CONTROL
           </motion.h1>
           <p className="text-gray-500 mt-2 tracking-[0.3em] uppercase text-xs">
             Shaxsiy tarkibni boshqarish tizimi
@@ -236,7 +230,7 @@ const OrgChart = () => {
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, scale: 0.9 }}
-                          className="bg-[#141d14] border border-gray-800 p-3 rounded-lg flex items-center justify-between group hover:border-green-500/50 transition-all"
+                          className="bg-[#141d14] border border-gray-800 p-3 rounded-lg flex items-center justify-between group hover:border-[#830218]/50 transition-all"
                         >
                           <div className="flex items-center gap-3">
                             <img
@@ -284,7 +278,7 @@ const OrgChart = () => {
         >
           <div className="p-6 border-b border-gray-800 flex justify-between items-center">
             <h2 className="text-xl font-bold flex items-center gap-2">
-              <Users className="text-green-500" /> TO'LIQ RO'YXAT
+              <Users className="text-[#830218]" /> TO'LIQ RO'YXAT
             </h2>
           </div>
           <div className="overflow-x-auto">
@@ -320,7 +314,7 @@ const OrgChart = () => {
                         {member.department}
                       </span>
                     </td>
-                    <td className="p-4 text-green-500 font-bold text-xs italic">
+                    <td className="p-4 text-[#830218] font-bold text-xs italic">
                       {member.role}
                     </td>
                     <td className="p-4 text-right">

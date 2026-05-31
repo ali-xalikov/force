@@ -33,21 +33,21 @@ export function Gallery() {
   return (
     <div
       id="galereya"
-      className="relative py-24 bg-gradient-to-b from-[#1F2A1F] to-[#0B0F0A] overflow-hidden"
+      className="relative py-24 bg-gradient-to-b from-[#650a19] to-[#27080d] overflow-hidden"
     >
       {/* Header */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center mb-16">
         <div className="inline-block mb-4">
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#4CAF50]/10 border border-[#4CAF50]/30 rounded-full">
-            <ImageIcon className="w-4 h-4 text-[#4CAF50]" />
-            <span className="text-[#4CAF50] text-sm tracking-wider">
+          <div className="flex items-center gap-2 px-4 py-2 bg-[#830218]/10 border border-[#830218]/30 rounded-full">
+            <ImageIcon className="w-4 h-4 text-[#830218]" />
+            <span className="text-[#830218] text-sm tracking-wider">
               VIZUAL ARXIV
             </span>
           </div>
         </div>
 
         <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
-          <span className="text-[#4CAF50]">GALEREYA</span>
+          <span className="text-[#830218]">GALEREYA</span>
         </h2>
       </div>
 
@@ -66,7 +66,7 @@ export function Gallery() {
                 whileHover={{ scale: 1.03, y: -5 }}
                 className="group relative"
               >
-                <div className="relative bg-[#1F2A1F]/40 border border-[#4CAF50]/20 rounded-xl overflow-hidden">
+                <div className="relative bg-[#1F2A1F]/40 border border-[#830218]/20 rounded-xl overflow-hidden">
                   <div className="relative h-72 overflow-hidden">
                     <img
                       src={image.url}
@@ -76,7 +76,7 @@ export function Gallery() {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F0A]/90 to-transparent" />
 
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-[#4CAF50]/90 rounded-full">
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-[#830218]/90 rounded-full">
                       <span className="text-xs font-bold text-black">
                         {image.category}
                       </span>
