@@ -3,19 +3,19 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Edit2, Trash2, Shield, Star, Users, Search } from "lucide-react";
-import Behruz from "../../../images/Behruz.jpg";
-import Jahona from "../../../images/Jahona.png";
-import Ruxsora from "../../../images/Ruxsora.png";
-import Isfandiyor from "../../../images/Isfandiyor.png";
-import Shohjahon from "../../../images/Shohjahon.png";
-import Talatjon from "../../../images/Tal'atjon.png";
-import Sherzod1 from "../../../images/Sherzod.png";
-import Sherzod from "../../../images/Sherzod.jpg";
-import Abbosbek from "../../../images/Abbosbek.jpg";
-import Bobur from "../../../images/Bobur.jpg";
-import Mehriddin from "../../../images/Mehriddin.png";
-import Dilyora from "../../../images/Dilyora.png";
-import Farrux from "../../../images/Farrux.png";
+import Behruz from "public/images/Behruz.jpg";
+import Jahona from "public/images/Jahona.png";
+import Ruxsora from "public/images/Ruxsora.png";
+import Isfandiyor from "public/images/Isfandiyor.png";
+import Shohjahon from "public/images/Shohjahon.png";
+import Talatjon from "public/images/Tal'atjon.png";
+import Sherzod1 from "public/images/Sherzod.png";
+import Sherzod from "public/images/Sherzod.jpg";
+import Abbosbek from "public/images/Abbosbek.jpg";
+import Bobur from "public/images/Bobur.jpg";
+import Mehriddin from "public/images/Mehriddin.png";
+import Dilyora from "public/images/Dilyora.png";
+import Farrux from "public/images/Farrux.png";
 
 
 
@@ -139,7 +139,7 @@ const OrgChart = () => {
       name: "Aleksandrov Bobur Tojiboy o'g'li",
       role: "Nazoratchi",
       department: "NAZORAT BO'LIMI",
-      image: Bour,
+      image: Bobur,
     },
   ]);
 

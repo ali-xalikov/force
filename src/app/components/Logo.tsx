@@ -5,7 +5,7 @@ export function Logo() {
     <div className="flex items-center gap-3">
       <div className="relative">
         <div className="w-12 h-12 bg-gradient-to-br from-[#830218] to-[#163959] rounded-md flex items-center justify-center shadow-lg shadow-[#830218]/30">
-          <img className="aylana" src="../../../images/logo.jpg" alt="" />
+          <img className="aylana" src="public/images/logo.jpg" alt="" />
         </div>
         <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#830218] rounded-full border-2 border-[#0B0F0A]"></div>
       </div>
