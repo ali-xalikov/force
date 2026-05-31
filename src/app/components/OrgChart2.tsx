@@ -3,31 +3,22 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Edit2, Trash2, Shield, Star, Users, Search } from "lucide-react";
-import Behruz from "@/public/images/Behruz.jpg";
-import Jahona from "@/public/images/Jahona.png";
-import Ruxsora from "@/public/images/Ruxsora.png";
-import Isfandiyor from "@/public/images/Isfandiyor.png";
-import Shohjahon from "@/public/images/Shohjahon.png";
-import Talatjon from "@/public/images/Tal'atjon.png";
-import Sherzod1 from "@/public/images/Sherzod.png";
-import Sherzod from "@/public/images/Sherzod.jpg";
-import Abbosbek from "@/public/images/Abbosbek.jpg";
-import Bobur from "@/public/images/Bobur.jpg";
-import Mehriddin from "@/public/images/Mehriddin.png";
-import Dilyora from "@/public/images/Dilyora.png";
-import Farrux from "@/public/images/Farrux.png";
 
-
-
-
-
-
-
-
-
-
-
-
+// Rasmlarni to'g'ri import qilish (public so'zini olib tashlang)
+// Eslatma: Fayl nomlari kichik-katta harfigacha rasm bilan bir xil bo'lishi SHART!
+import Behruz from "/images/Behruz.jpg";
+import Jahona from "/images/Jahona.png";
+import Ruxsora from "/images/Ruxsora.png";
+import Isfandiyor from "/images/Isfandiyor.png";
+import Shohjahon from "/images/Shohjahon.png";
+import Talatjon from "/images/Tal'atjon.png";
+import Sherzod1 from "/images/Sherzod.png";
+import Sherzod from "/images/Sherzod.jpg";
+import Abbosbek from "/images/Abbosbek.jpg";
+import Bobur from "/images/Bobur.jpg";
+import Mehriddin from "/images/Mehriddin.png";
+import Dilyora from "/images/Dilyora.png";
+import Farrux from "/images/Farrux.png";
 
 interface TeamMember {
   id: number;
@@ -83,8 +74,6 @@ const OrgChart = () => {
       department: "OMMAVIY TADBIRLAR GURUHI",
       image: Talatjon,
     },
-
-    // ICHKI TADBIRLAR
     {
       id: 7,
       name: "Mavlonov Mehriddin Mansur o'g'li",
@@ -159,6 +148,12 @@ const OrgChart = () => {
     "NAZORAT BO'LIMI": { color: "from-emerald-600 to-teal-500", icon: Search },
   };
 
+  // Rasm manbasini aniqlash uchun yordamchi funksiya
+  const getImgSrc = (img: any) => {
+    if (!img) return "/images/placeholder.jpg"; // Zaxira rasm
+    return typeof img === "string" ? img : img.src;
+  };
+
   return (
     <div className="min-h-screen bg-[#080a08] text-white py-12 px-4 md:px-10 font-sans">
       <div className="max-w-7xl mx-auto">
@@ -186,15 +181,14 @@ const OrgChart = () => {
                 className="relative w-full max-w-sm p-[2px] bg-gradient-to-r from-yellow-500/50 to-orange-500/50 rounded-2xl shadow-[0_0_30px_rgba(234,179,8,0.1)]"
               >
                 <div className="bg-[#0b120b] rounded-2xl p-6 flex flex-col items-center text-center">
-                  <div className="w-32 h-40 mb-4 overflow-hidden rounded-xl border-2 border-yellow-500/30">
+                  <div className="w-32 h-40 mb-4 overflow-hidden rounded-xl border-2 border-yellow-500/30 bg-gray-900">
                     <img
-                      src={
-                        typeof leader.image === "string"
-                          ? leader.image
-                          : leader.image.src
-                      }
+                      src={getImgSrc(leader.image)}
                       className="w-full h-full object-cover"
                       alt={leader.name}
+                      onError={(e) =>
+                        (e.currentTarget.src = "/images/logo.jpg")
+                      }
                     />
                   </div>
                   <h3 className="text-xl font-bold text-white uppercase">
@@ -208,6 +202,7 @@ const OrgChart = () => {
             ))}
         </div>
 
+        {/* Bo'limlar */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {[
             "OMMAVIY TADBIRLAR GURUHI",
@@ -239,15 +234,16 @@ const OrgChart = () => {
                           className="bg-[#141d14] border border-gray-800 p-3 rounded-lg flex items-center justify-between group hover:border-[#830218]/50 transition-all"
                         >
                           <div className="flex items-center gap-3">
-                            <img
-                              src={
-                                typeof member.image === "string"
-                                  ? member.image
-                                  : member.image.src
-                              }
-                              className="w-10 h-12 object-cover rounded bg-white scale-125"
-                              alt=""
-                            />
+                            <div className="w-10 h-12 overflow-hidden rounded bg-gray-900">
+                              <img
+                                src={getImgSrc(member.image)}
+                                className="w-full h-full object-cover scale-110"
+                                alt=""
+                                onError={(e) =>
+                                  (e.currentTarget.src = "/images/logo.jpg")
+                                }
+                              />
+                            </div>
                             <div className="flex flex-col">
                               <span className="text-[11px] font-bold text-gray-200 leading-tight">
                                 {member.name}
@@ -277,6 +273,7 @@ const OrgChart = () => {
           })}
         </div>
 
+        {/* Jadval qismi */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -304,15 +301,13 @@ const OrgChart = () => {
                     className="border-b border-gray-800 hover:bg-white/[0.02] transition-colors"
                   >
                     <td className="p-4 flex items-center gap-3">
-                      <img
-                        src={
-                          typeof member.image === "string"
-                            ? member.image
-                            : member.image.src
-                        }
-                        className="w-8 h-10 object-cover rounded bg-white scale-125"
-                        alt=""
-                      />
+                      <div className="w-8 h-10 overflow-hidden rounded bg-gray-900">
+                        <img
+                          src={getImgSrc(member.image)}
+                          className="w-full h-full object-cover"
+                          alt=""
+                        />
+                      </div>
                       <span className="font-medium">{member.name}</span>
                     </td>
                     <td className="p-4">
