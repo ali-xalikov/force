@@ -120,11 +120,8 @@ const OrgChart = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter"
           >
-            UWED <span className="text-[#830218]">FORCE</span>
+            UWED<span className="text-[white]">FORCE</span>
           </motion.h1>
-          <p className="text-gray-500 mt-3 text-sm tracking-widest uppercase">
-            Shaxsiy tarkib
-          </p>
         </header>
 
         {/* Rahbar (agar kerak bo'lsa qo'shishingiz mumkin) */}

@@ -44,15 +44,7 @@ export function Team() {
             role: "Guruh Rahbari",
             avatar_url: "/images/Sherzod.jpg",
             specialty: "Strategik boshqaruv va taktik qo'mondonlik",
-          },
-          {
-            id: "2",
-            name: "Yunusov Asilbek Adizbek o'g'li",
-            role: "Ommaiy tadbirlar guruhi",
-            avatar_url: "/images/Asilbek.jpg",
-            specialty: "Xavfsizlikni ta'minlash",
-          },
-          // qolganlari kerak bo'lsa qo'shishingiz mumkin
+          }
         ]);
       } finally {
         setLoading(false);
@@ -111,7 +103,7 @@ export function Team() {
             </div>
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4 uppercase italic">
-            ELITA <span className="text-[#830218]">SHAXSIY TARKIB</span>
+            "QALQON" <span className="text-[#830218]">JAMOATCHILIK GURUXI</span>
           </h2>
         </motion.div>
 
