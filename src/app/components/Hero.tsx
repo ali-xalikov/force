@@ -71,8 +71,8 @@ export function Hero() {
           className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-6"
           style={{ fontFamily: "Orbitron, sans-serif" }}
         >
-          <span className="text-white">UWED</span>{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#830218] to-[#3c0710]">
+          <span className="text-white">UWED</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#ffffff28]">
             FORCE
           </span>
         </motion.h1>
@@ -95,20 +95,6 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          {/* Primary Button */}
-          <a
-            href="#contact"
-            className="group relative px-8 py-4 bg-gradient-to-r from-[#830218] to-[#ac031] hover:to-[#ac031f] rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#830218]/50"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#830218] to-[#ac031f] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span
-              className="relative flex items-center gap-2 text-white font-bold tracking-wider"
-              style={{ fontFamily: "Rajdhani, sans-serif" }}
-            >
-              JAMOAGA QO'SHILISH
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </a>
 
           {/* Secondary Button */}
           <a
@@ -126,21 +112,6 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-9/10"
-        >
-          <div className="w-6 h-10 border-2 border-[#830218]/50 rounded-full flex items-start justify-center p-2">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1 h-2 bg-[#830218] rounded-full"
-            ></motion.div>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

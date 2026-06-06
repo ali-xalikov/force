@@ -1,99 +1,155 @@
-"use client";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-import { useEffect, useState } from "react";
-import { motion } from "motion/react";
-import { ImageIcon } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+interface GalleryItem {
+  id: number;
+  title: string;
+  category: string;
+  image_url: string;
+  created_at: string;
+}
 
 export function Gallery() {
-  const [galleryImages, setGalleryImages] = useState([]);
+  const [items, setItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState("all");
+
+  const SUPABASE_URL = "https://jtnqsbgrdbonxhlkaikn.supabase.co";
+  const SUPABASE_ANON_KEY =
+    import.meta.env.VITE_SUPABASE_ANON_KEY ||
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0bnFzYmdyZGJvbnhobGthaWtuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxNjIyODQsImV4cCI6MjA5NDczODI4NH0.DNP0OmIN0p0uPlxnDUwx3wfuGyePjgtARkS214tr6Eo";
 
   useEffect(() => {
-    const fetchGallery = async () => {
-      setLoading(true);
+    async function loadGallery() {
+      try {
+        const res = await fetch(
+          `${SUPABASE_URL}/rest/v1/Gallery?select=*&order=created_at.desc`,
+          {
+            headers: {
+              apikey: SUPABASE_ANON_KEY,
+              Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+            },
+          }
+        );
 
-      const { data, error } = await supabase
-        .from("gallery")
-        .select("*")
-        .order("id", { ascending: false });
-
-      if (error) {
-        console.log("Supabase error:", error.message);
-      } else {
-        setGalleryImages(data);
+        if (!res.ok) throw new Error("Failed to fetch");
+        const data: GalleryItem[] = await res.json();
+        setItems(data);
+      } catch (error) {
+        console.error(error);
+        setItems([
+          {
+            id: 1,
+            title: "Test Rasm",
+            category: "event",
+            image_url:
+              "https://api.uwed.uz/uploads/slider/UcB4rNEowwqdx3JMKHdwt6tuAtWazzpBt8r0FXsv.jpg",
+            created_at: "2026-06-06",
+          },
+        ]);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
-    };
-
-    fetchGallery();
+    }
+    loadGallery();
   }, []);
 
+  const filteredItems =
+    filter === "all"
+      ? items
+      : items.filter(
+          (item) => item.category.toLowerCase() === filter.toLowerCase()
+        );
+
+  const categories = [
+    "all",
+    "event",
+    "ceremony",
+    "sport",
+    "education",
+    "other",
+  ];
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center text-white">
+        Yuklanmoqda...
+      </div>
+    );
+  }
+
   return (
-    <div
-      id="galereya"
-      className="relative py-24 bg-gradient-to-b from-[#650a19] to-[#27080d] overflow-hidden"
-    >
+    <div className="min-h-screen bg-black text-white pb-20">
       {/* Header */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center mb-16">
-        <div className="inline-block mb-4">
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#830218]/10 border border-[#830218]/30 rounded-full">
-            <ImageIcon className="w-4 h-4 text-[#830218]" />
-            <span className="text-[#830218] text-sm tracking-wider">
-              VIZUAL ARXIV
-            </span>
-          </div>
-        </div>
-
-        <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
-          <span className="text-[#830218]">GALEREYA</span>
-        </h2>
+      <div className="pt-8 pb-10 text-center border-b border-gray-900">
+        <h1 className="text-5xl md:text-6xl font-black tracking-tighter">
+          UWED <span className="text-[#e63939]">GALLERY</span>
+        </h1>
+        <p className="text-gray-400 mt-3 text-lg">
+          Universitet hayotidan eng yaxshi lahzalar
+        </p>
       </div>
 
-      {/* Grid */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {loading ? (
-          <p className="text-white text-center">Loading...</p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryImages.map((image, index) => (
-              <motion.div
-                key={image.id || index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                className="group relative"
-              >
-                <div className="relative bg-[#1F2A1F]/40 border border-[#830218]/20 rounded-xl overflow-hidden">
-                  <div className="relative h-72 overflow-hidden">
-                    <img
-                      src={image.url}
-                      alt={image.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+      {/* Filters */}
+      <div className="flex flex-wrap justify-center gap-3 mt-10 px-4">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setFilter(cat)}
+            className={`px-8 py-3 rounded-full text-sm font-medium uppercase tracking-wider transition-all ${
+              filter === cat
+                ? "bg-[#e63939] text-white"
+                : "bg-[#1a1a1a] hover:bg-[#252525] border border-gray-800"
+            }`}
+          >
+            {cat === "all" ? "BARCHASI" : cat.toUpperCase()}
+          </button>
+        ))}
+      </div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F0A]/90 to-transparent" />
+      {/* Gallery Grid */}
+      <div className="max-w-7xl mx-auto px-4 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {filteredItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.06 }}
+              className="group cursor-pointer"
+            >
+              <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-gray-900">
+                <img
+                  src={item.image_url}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              </div>
 
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-[#830218]/90 rounded-full">
-                      <span className="text-xs font-bold text-black">
-                        {image.category}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-4 left-4">
-                      <h3 className="text-white font-bold text-lg">
-                        {image.title}
-                      </h3>
-                    </div>
-                  </div>
+              {/* Card Info */}
+              <div className="mt-4 bg-[#0f0f0f] p-5 rounded-2xl border border-gray-900">
+                <div className="uppercase text-[#e63939] text-xs font-bold tracking-widest mb-1">
+                  {item.category}
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        )}
+                <h3 className="text-lg font-semibold line-clamp-2 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-500 text-sm">
+                  {new Date(item.created_at).toISOString().split("T")[0]}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
+
+      {filteredItems.length === 0 && (
+        <div className="text-center text-gray-500 text-xl mt-20">
+          Bu kategoriyada hozircha rasmlar yo‘q
+        </div>
+      )}
     </div>
   );
 }
