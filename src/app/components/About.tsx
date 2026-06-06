@@ -55,22 +55,11 @@ export function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-block mb-4">
-            <div className="flex items-center gap-2 px-4 py-2 bg-[#830218]/10 border border-[#830218]/30 rounded-full">
-              <div className="w-2 h-2 bg-[#830218] rounded-full animate-pulse"></div>
-              <span
-                className="text-[#830218] text-sm tracking-wider"
-                style={{ fontFamily: "Rajdhani, sans-serif", fontWeight: 600 }}
-              >
-                BIZ KIMLAR
-              </span>
-            </div>
-          </div>
           <h2
             className="text-5xl md:text-6xl font-black tracking-tight text-white mb-6"
             style={{ fontFamily: "Orbitron, sans-serif" }}
           >
-            BIZ <span className="text-[#830218]">HAQIMIZDA</span>
+            BIZ <span className="text-white">HAQIMIZDA</span>
           </h2>
           <p
             className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed"
