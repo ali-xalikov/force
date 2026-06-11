@@ -44,7 +44,56 @@ export function Team() {
             role: "Guruh Rahbari",
             avatar_url: "/images/Sherzod.jpg",
             specialty: "Strategik boshqaruv va taktik qo'mondonlik",
-          }
+          },
+          {
+            id: "2",
+            name: "Xamrayeva Dilyora Isroil qizi",
+            role: "Matbuot, axborot va media bo‘limi",
+            avatar_url: "/images/Dilyora.png",
+            specialty: "Strategik boshqaruv va taktik qo'mondonlik",
+          },
+          {
+            id: "3",
+            name: "Atamurodov Dilmurod Odilovich",
+            role: "Guruh Rahbari yordamchisi",
+            avatar_url: "",
+            specialty: "Strategik boshqaruv va taktik qo'mondonlik",
+          },
+          {
+            id: "4",
+            name: "Aleksandrov Bobur Tojiboy oʻgʻli",
+            role: "Guruh Rahbari o'rinbosari",
+            avatar_url: "/images/Bobur.jpg",
+            specialty: "Strategik boshqaruv va taktik qo'mondonlik",
+          },
+          {
+            id: "5",
+            name: "Abdunazarov Muhammadali Akbar o‘g‘li",
+            role: "Ichki tartib va tadbirlarni muvofiqlashtirish bo‘limi ",
+            avatar_url: "",
+            specialty: "Strategik boshqaruv va taktik qo'mondonlik",
+          },
+          {
+            id: "6",
+            name: "Rahmonqulov Sherzod Bahromjon o’g’li",
+            role: "Tashqi tadbirlar va protokol bo‘lim ",
+            avatar_url: "",
+            specialty: "Strategik boshqaruv va taktik qo'mondonlik",
+          },
+          {
+            id: "7",
+            name: "Muxammadaliyev Farrux Sultonali o‘g‘li",
+            role: "Sport musobaqalari va ommaviy tadbirlar bo‘limi  ",
+            avatar_url: "",
+            specialty: "Strategik boshqaruv va taktik qo'mondonlik",
+          },
+          {
+            id: "8",
+            name: "Kulmamatova Zaxro Asliddin qizi",
+            role: "Murojaatlar bilan ishlash va monitoring bo‘limi",
+            avatar_url: "",
+            specialty: "Strategik boshqaruv va taktik qo'mondonlik",
+          },
         ]);
       } finally {
         setLoading(false);
