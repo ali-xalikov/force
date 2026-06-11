@@ -28,6 +28,10 @@ const OrgChart = () => {
     import.meta.env.VITE_SUPABASE_ANON_KEY ||
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0bnFzYmdyZGJvbnhobGthaWtuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxNjIyODQsImV4cCI6MjA5NDczODI4NH0.DNP0OmIN0p0uPlxnDUwx3wfuGyePjgtARkS214tr6Eo";
 
+<<<<<<< HEAD
+=======
+  // Ma'lumotlarni yuklash
+>>>>>>> 9eb7bcd0bb6629f05f6c7d96d0b7e7b26dc3abdf
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -44,6 +48,10 @@ const OrgChart = () => {
         const groupsData = await groupsRes.json();
         setGroups(Array.isArray(groupsData) ? groupsData : []);
 
+<<<<<<< HEAD
+=======
+        // 2. Members (Xodimlar) yuklash
+>>>>>>> 9eb7bcd0bb6629f05f6c7d96d0b7e7b26dc3abdf
         const membersRes = await fetch(
           `${SUPABASE_URL}/rest/v1/members?select=*&order=created_at.desc`,
           {
@@ -65,6 +73,34 @@ const OrgChart = () => {
     loadData();
   }, [SUPABASE_ANON_KEY]);
 
+<<<<<<< HEAD
+=======
+  const handleDelete = async (id: string) => {
+    if (!confirm("Ushbu xodimni o'chirishni xohlaysizmi?")) return;
+
+    try {
+      await fetch(`${SUPABASE_URL}/rest/v1/members?id=eq.${id}`, {
+        method: "DELETE",
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+      });
+      setTeamData((prev) => prev.filter((m) => m.id !== id));
+    } catch (error) {
+      console.error(error);
+      alert("O'chirishda xatolik yuz berdi");
+    }
+  };
+
+  // group_id bo'yicha bo'lim nomini topish
+  const getGroupName = (group_id?: string) => {
+    if (!group_id) return "Boshqa";
+    const group = groups.find((g) => g.id === group_id);
+    return group ? group.name : "Boshqa";
+  };
+
+>>>>>>> 9eb7bcd0bb6629f05f6c7d96d0b7e7b26dc3abdf
   const departmentStyles: any = {
     RAHBARIYAT: { color: "from-yellow-600 to-orange-500", icon: Star },
     "OMMAVIY TADBIRLAR GURUHI": {
@@ -96,6 +132,13 @@ const OrgChart = () => {
             UWED<span className="text-[white]">FORCE</span>
           </motion.h1>
         </header>
+<<<<<<< HEAD
+=======
+
+        {/* Rahbar (agar kerak bo'lsa qo'shishingiz mumkin) */}
+
+        {/* Bo'limlar - Groups dan dinamik */}
+>>>>>>> 9eb7bcd0bb6629f05f6c7d96d0b7e7b26dc3abdf
         <div className="space-y-12">
           {groups.length > 0 ? (
             groups.map((group) => {
@@ -140,6 +183,21 @@ const OrgChart = () => {
                               {member.rank}
                             </p>
                           </div>
+<<<<<<< HEAD
+=======
+
+                          <div className="flex flex-col justify-between items-end opacity-70 group-hover:opacity-100 transition-opacity">
+                            <button className="p-2 text-blue-400 hover:text-blue-300">
+                              <Edit2 size={18} />
+                            </button>
+                            <button
+                              onClick={() => handleDelete(member.id)}
+                              className="p-2 text-red-400 hover:text-red-300"
+                            >
+                              <Trash2 size={18} />
+                            </button>
+                          </div>
+>>>>>>> 9eb7bcd0bb6629f05f6c7d96d0b7e7b26dc3abdf
                         </motion.div>
                       ))}
                     </AnimatePresence>
