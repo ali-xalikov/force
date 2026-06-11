@@ -4,7 +4,6 @@ import { Gallery } from './components/Gallery';
 import { Hero } from './components/Hero';
 import { Missions } from './components/Missions';
 import { Navbar } from './components/Navbar';
-import OrgChart from './components/OrgChart2';
 import OrgChart1 from './components/OrgChart';
 import { Team } from './components/Team';
 
@@ -16,7 +15,6 @@ export default function App() {
             <About />
             <Team />
             <OrgChart1 />
-            <OrgChart />
             <Missions />
             <Gallery />
             <Footer />
