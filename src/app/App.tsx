@@ -6,6 +6,7 @@ import { Missions } from './components/Missions';
 import { Navbar } from './components/Navbar';
 import OrgChart1 from './components/OrgChart';
 import { Team } from './components/Team';
+import Jadval from './components/Jadval';
 
 export default function App() {
     return (
@@ -14,6 +15,7 @@ export default function App() {
             <Hero />
             <About />
             <Team />
+            <Jadval />
             <OrgChart1 />
             <Missions />
             <Gallery />
