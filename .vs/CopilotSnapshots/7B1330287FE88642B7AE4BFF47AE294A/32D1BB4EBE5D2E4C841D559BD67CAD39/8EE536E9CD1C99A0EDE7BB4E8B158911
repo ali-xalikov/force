@@ -1,0 +1,182 @@
+﻿'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Crosshair, Eye, Zap, Shield } from 'lucide-react';
+
+export function Team() {
+  const teamMembers = [
+    {
+      codename: 'GHOST',
+      role: 'Snayper',
+      image: 'https://images.unsplash.com/photo-1767211808524-67b995a160b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YWN0aWNhbCUyMHNvbGRpZXIlMjBwb3J0cmFpdCUyMGNvbWJhdHxlbnwxfHx8fDE3NzQ5NzY3NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      icon: Crosshair,
+      specialty: 'Uzoq masofali otishma',
+    },
+    {
+      codename: 'FALCON',
+      role: 'Qo\'mondon',
+      image: 'https://images.unsplash.com/photo-1718004430735-42e636e62949?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaWxpdGFyeSUyMG9wZXJhdG9yJTIwc3BlY2lhbCUyMGZvcmNlcyUyMGdlYXJ8ZW58MXx8fHwxNzc0OTc2NzYzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+      icon: Shield,
+      specialty: 'Taktik rahbarlik',
+    },
+    {
+      codename: 'SHADOW',
+      role: 'Razvedkachi',
+      image: 'https://images.unsplash.com/photo-1759167625071-069dc252702f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuaWdodCUyMHZpc2lvbiUyMHRhY3RpY2FsJTIwZXF1aXBtZW50fGVufDF8fHx8MTc3NDk3Njc2M3ww&ixlib=rb-4.1.0&q=80&w=1080',
+      icon: Eye,
+      specialty: 'Ma\'lumot yig\'ish',
+    },
+    {
+      codename: 'VIPER',
+      role: 'Hujumchi',
+      image: 'https://images.unsplash.com/photo-1763992523616-fe79c4174dc8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaWxpdGFyeSUyMHRlYW0lMjBmb3JtYXRpb258ZW58MXx8fHwxNzc0OTc2NzYzfDA&ixlib=rb-4.1.0&q=80&w=1080',
+      icon: Zap,
+      specialty: 'Tez javob berish',
+    },
+  ];
+
+  return (
+    <div id="jamoa" className="relative py-24 bg-gradient-to-b from-[#0B0F0A] to-[#1F2A1F] overflow-hidden">
+      {/* Background Pattern */}
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1740578352274-ce4463372e5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYW1vdWZsYWdlJTIwcGF0dGVybiUyMHRleHR1cmUlMjBtaWxpdGFyeXxlbnwxfHx8fDE3NzQ5NzY3NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080')`,
+          backgroundSize: 'cover',
+        }}
+      ></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block mb-4">
+            <div className="flex items-center gap-2 px-4 py-2 bg-[#4CAF50]/10 border border-[#4CAF50]/30 rounded-full">
+              <div className="w-2 h-2 bg-[#4CAF50] rounded-full animate-pulse"></div>
+              <span
+                className="text-[#4CAF50] text-sm tracking-wider"
+                style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 600 }}
+              >
+                ELITA OPERATORLAR
+              </span>
+            </div>
+          </div>
+          <h2
+            className="text-5xl md:text-6xl font-black tracking-tight text-white mb-6"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            BIZNING <span className="text-[#4CAF50]">JAMOAMIZ</span>
+          </h2>
+          <p
+            className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed"
+            style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 500 }}
+          >
+            UWED FORCE jamoasining har bir a'zosi yuqori malakali mutaxassis bo'lib, 
+            o'zining noyob ko'nikmalari va vazifaga sadoqati uchun tanlab olingan.
+          </p>
+        </motion.div>
+
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {teamMembers.map((member, index) => {
+            const Icon = member.icon;
+            return (
+              <motion.div
+                key={member.codename}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, y: -10 }}
+                className="group relative"
+              >
+                {/* Card */}
+                <div className="relative bg-[#1F2A1F]/40 backdrop-blur-md border border-[#4CAF50]/20 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#4CAF50]/60 hover:shadow-2xl hover:shadow-[#4CAF50]/30">
+                  {/* Image */}
+                  <div className="relative h-80 overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.codename}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F0A] via-[#0B0F0A]/50 to-transparent"></div>
+                    
+                    {/* Icon Badge */}
+                    <div className="absolute top-4 right-4 w-12 h-12 bg-[#4CAF50]/90 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#4CAF50]/50">
+                      <Icon className="w-6 h-6 text-[#0B0F0A]" strokeWidth={2.5} />
+                    </div>
+
+                    {/* Status Badge */}
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-[#4CAF50]/90 backdrop-blur-sm rounded-full">
+                      <span
+                        className="text-[#0B0F0A] text-xs font-bold tracking-wider"
+                        style={{ fontFamily: 'Rajdhani, sans-serif' }}
+                      >
+                        FAOL
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3
+                      className="text-2xl font-black text-white mb-2 tracking-wider"
+                      style={{ fontFamily: 'Orbitron, sans-serif' }}
+                    >
+                      {member.codename}
+                    </h3>
+                    <div className="flex items-center justify-between mb-3">
+                      <span
+                        className="text-[#4CAF50] font-bold tracking-wide"
+                        style={{ fontFamily: 'Rajdhani, sans-serif' }}
+                      >
+                        {member.role}
+                      </span>
+                    </div>
+                    <p
+                      className="text-white/70 text-sm"
+                      style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 500 }}
+                    >
+                      {member.specialty}
+                    </p>
+
+                    {/* Skill bars */}
+                    <div className="mt-4 space-y-2">
+                      <div className="flex items-center justify-between text-xs text-white/60">
+                        <span style={{ fontFamily: 'Rajdhani, sans-serif', fontWeight: 600 }}>JANG KO'NIKMALARI</span>
+                        <span>98%</span>
+                      </div>
+                      <div className="h-1 bg-[#1F2A1F] rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: '98%' }}
+                          transition={{ duration: 1, delay: 0.5 }}
+                          viewport={{ once: true }}
+                          className="h-full bg-gradient-to-r from-[#4CAF50] to-[#2E7D32]"
+                        ></motion.div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#4CAF50]/0 via-[#4CAF50]/0 to-[#4CAF50]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#4CAF50]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#4CAF50]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}

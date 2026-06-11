@@ -1,0 +1,21 @@
+﻿import { Navbar } from './components/Navbar.tsx';
+import { Hero } from './components/Hero.tsx';
+import { About } from './components/About.tsx';
+import { Team } from './components/Team.tsx';
+import { Missions } from './components/Missions.tsx';
+import { Gallery } from './components/Gallery.tsx';
+import { Footer } from './components/Footer.tsx';
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-[#0B0F0A]">
+      <Navbar />
+      <Hero />
+      <About />
+      <Team />
+      <Missions />
+      <Gallery />
+      <Footer />
+    </div>
+  );
+}
